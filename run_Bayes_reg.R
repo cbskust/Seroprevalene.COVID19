@@ -1,5 +1,5 @@
-setwd("/Users/choi.1409/Documents/SeroSIR/GitHub")
-#setwd("~/Dropbox//PAPER/SeroSIR/Model")
+setwd("/Dropbox/PAPER/SeroSIR/GitHub")
+
 
 
 ################################################################################
