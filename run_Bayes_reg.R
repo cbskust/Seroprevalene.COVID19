@@ -91,15 +91,16 @@ dat_reg <-dat_reg %>%
 nb.fit.Bayes <-stan_glm.nb(prev.cnt ~ avg_n1, # symbolic description of the model  
                   link = "log",           # link function    
                   data= dat_reg,          # name of data 
-                  warmup =1000,           # number of warmup iterations per chain
-                  iter = 3000,            # total number of iterations per chain
+                  warmup =2000,           # number of warmup iterations per chain
+                  iter = 4000,            # total number of iterations per chain
                   chains = 2,             # number of Markov chains
                   refresh = 1000,         # show progress every 'refresh' iterations
+                  prior_aux = exponential(.01) # assigning non-inforamtive prior to dispersion         
                   seed=12345
                   )
 
 # output fit summary status
-print(summary(nb.fit.Bayes, digits =6, probs=c(0.25, 0.5, 0.975) ))
+print(summary(nb.fit.Bayes, digits =6, probs=c(0.025, 0.5, 0.975) ))
          
 
 # output  posterior traceplot & histogram 
@@ -122,15 +123,15 @@ print(summary(nb.fit))
 lm.fit.Bayes <-stan_glm(prev ~ avg_n1,         # symbolic description of the model
                         family = gaussian(),   # liner regession model 
                         data= dat_reg,        # name of data 
-                        warmup =1000,          # number of warmup iterations per chain
-                        iter = 3000,           # total number of iterations per chain
+                        warmup =2000,          # number of warmup iterations per chain
+                        iter = 4000,           # total number of iterations per chain
                         chains = 2,            # number of Markov chains
                         refresh = 1000,        # show progress every 'refresh' iterations
                         seed=12345
 )
 
 # output fit summary status
-print(summary(lm.fit.Bayes, digits = 9, probs=c(0.25, 0.5, 0.975)))
+print(summary(lm.fit.Bayes, digits = 9, probs=c(0.025, 0.5, 0.975)))
 
 # output  posterior traceplot & histogram 
 # mcmc_trace(lm.fit.Bayes, pars = c("avg_n1"), 
