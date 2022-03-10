@@ -1,4 +1,4 @@
-setwd("/Dropbox/PAPER/SeroSIR/GitHub")
+setwd("~/Dropbox/PAPER/SeroSIR/GitHub")
 
 
 
