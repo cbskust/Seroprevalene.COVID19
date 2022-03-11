@@ -113,8 +113,8 @@ fit <- stan(
   file=stan.path,           # Stan program
   data=data.SIRT,           # named list of data
   chains=2,                 # number of Markov chains
-  warmup=2000,              # number of warmup iterations per chain
-  iter=4000,                # total number of iterations per chain
+  warmup=1000,              # number of warmup iterations per chain
+  iter=3000,                # total number of iterations per chain
   cores=3,                  # number of cores
   refresh=1000,            # show progress every 'refresh' iterations
   control=list(adapt_delta=.9)
