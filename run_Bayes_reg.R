@@ -91,8 +91,8 @@ dat_reg <-dat_reg %>%
 nb.fit.Bayes <-stan_glm.nb(prev.cnt ~ avg_n1, # symbolic description of the model  
                   link = "log",           # link function    
                   data= dat_reg,          # name of data 
-                  warmup =2000,           # number of warmup iterations per chain
-                  iter = 4000,            # total number of iterations per chain
+                  warmup =1000,           # number of warmup iterations per chain
+                  iter = 3000,            # total number of iterations per chain
                   chains = 2,             # number of Markov chains
                   refresh = 1000,         # show progress every 'refresh' iterations
                   prior_aux = exponential(.01) # assigning non-inforamtive prior to dispersion         
@@ -123,8 +123,8 @@ print(summary(nb.fit))
 lm.fit.Bayes <-stan_glm(prev ~ avg_n1,         # symbolic description of the model
                         family = gaussian(),   # liner regession model 
                         data= dat_reg,        # name of data 
-                        warmup =2000,          # number of warmup iterations per chain
-                        iter = 4000,           # total number of iterations per chain
+                        warmup =1000,          # number of warmup iterations per chain
+                        iter = 3000,           # total number of iterations per chain
                         chains = 2,            # number of Markov chains
                         refresh = 1000,        # show progress every 'refresh' iterations
                         seed=12345
